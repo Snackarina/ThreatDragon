@@ -1447,7 +1447,7 @@
                   "severity": "Medium",
                   "type": "Tampering",
                   "description": "Replacement of report which seems legit through Signature\nD6/R8/E8/A1\n\nCAPEC: 485 Signature Spoof\nAttack: T1565 Data Manipulation / T0005 Defense Evasion",
-                  "mitigation": "",
+                  "mitigation": "Verifying Identity an Authorization of Sender \n\nD3-CA: Certificate Analysis\n\nD:6/R:1/E:1/A:1 -> 9",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 116,
@@ -1716,11 +1716,11 @@
             },
             "attrs": {
               "text": {
-                "text": "Bedrohungsmodell"
+                "text": "Bedrohungs-\nmodell"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -1730,11 +1730,11 @@
             "id": "d8f6021e-35e9-4644-b797-86aa8de4f16c",
             "data": {
               "type": "tm.Process",
-              "name": "Bedrohungsmodell",
+              "name": "Bedrohungs-\nmodell",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
@@ -1742,16 +1742,16 @@
               "threats": [
                 {
                   "id": "736dbd82-f5b5-4709-80ae-a427ba24c72d",
-                  "title": "leakage of the monthly report",
-                  "status": "Open",
-                  "severity": "Medium",
+                  "title": "leakage of threat model",
+                  "status": "Mitigated",
+                  "severity": "High",
                   "type": "Information disclosure",
-                  "description": "Malicious Insider leaks monthly report\nD10/R1/E10/A4",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "extraction of threat model through public github repo\nD10/R0/E10/A4\n\nCAPEC: 118 Collect and Analyze Information\nATTACK:  T1082 System Information Discovery",
+                  "mitigation": "Moving to a private repository with according allowed people\n\nD3FEND: D3-LFP Local File Permission\n\nD:1/R:1/E:1/A:1 -> 4",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 113,
-                  "score": ""
+                  "score": "34"
                 }
               ]
             }
