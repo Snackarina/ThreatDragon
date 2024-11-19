@@ -20,24 +20,19 @@
         "cells": [
           {
             "position": {
-              "x": 14.999999999999545,
-              "y": -429.99999999999966
+              "x": 151.99999999999824,
+              "y": -387
             },
             "size": {
-              "width": 660,
-              "height": 660
+              "width": 620,
+              "height": 620
             },
             "shape": "trust-boundary-box",
-            "attrs": {
-              "headerText": {
-                "text": "Allsecure"
-              }
-            },
-            "id": "fe873b46-b9d1-4586-a4d8-272b53f5dfb1",
             "zIndex": -1,
+            "id": "ba8b2041-4525-4ac1-909d-cec967ff6f91",
             "data": {
               "type": "tm.BoundaryBox",
-              "name": "Allsecure",
+              "name": "Trust Boundary",
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false
@@ -45,8 +40,8 @@
           },
           {
             "position": {
-              "x": -288,
-              "y": 43.000000000000085
+              "x": -38,
+              "y": 18.000000000000078
             },
             "size": {
               "width": 160,
@@ -92,8 +87,8 @@
                 "text": "Login System -\nWebapp +\nMobile App"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -121,10 +116,25 @@
                   "new": false,
                   "number": 101,
                   "score": "28"
+                },
+                {
+                  "id": "001dedbd-a05b-4510-82b7-6b8023cb451f",
+                  "title": "Reverse Shell",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "Creation of reverse shell through usage of the loggin system.\nD10/R10/E10/A10",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 112,
+                  "score": "40"
                 }
               ],
-              "hasOpenThreats": false,
-              "isWebApplication": null
+              "hasOpenThreats": true,
+              "isWebApplication": null,
+              "handlesCardPayment": null,
+              "handlesGoodsOrServices": null
             }
           },
           {
@@ -141,8 +151,8 @@
                 "text": "2-Faktor-Authe\nntifizierungsdi\nenst"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -157,14 +167,29 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "threats": [],
-              "hasOpenThreats": false,
+              "threats": [
+                {
+                  "id": "67b24d18-d0e0-4928-a935-b86883173d3c",
+                  "title": "Spoofing of User Identity",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Attacker pretends to be a registered User , but will use his own phone number\n\nD8/R3/E3/A3/",
+                  "mitigation": "Auth with OTT and another form of Auth\nMonitoring of unusual Login Circumstances e.g. Changed Location, multiple wrong Auth Tries",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 104,
+                  "score": "17"
+                }
+              ],
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "protocol": "",
               "isEncrypted": false,
               "isPublicNetwork": false,
               "isWebApplication": null,
-              "handlesCardPayment": null
+              "handlesCardPayment": null,
+              "handlesGoodsOrServices": null
             }
           },
           {
@@ -198,13 +223,16 @@
               "outOfScope": false,
               "reasonOutOfScope": "",
               "threats": [],
-              "hasOpenThreats": false
+              "hasOpenThreats": false,
+              "isWebApplication": null,
+              "handlesCardPayment": null,
+              "handlesGoodsOrServices": null
             }
           },
           {
             "position": {
-              "x": 845,
-              "y": 426
+              "x": 571,
+              "y": 266
             },
             "size": {
               "width": 120,
@@ -281,7 +309,7 @@
             "data": {
               "name": "Telefon-Routing-\nInterface",
               "description": "",
-              "type": "tm.Flow",
+              "type": "tm.Process",
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -294,162 +322,56 @@
             }
           },
           {
-            "shape": "flow",
+            "position": {
+              "x": 660,
+              "y": 110
+            },
+            "size": {
+              "width": 100,
+              "height": 100
+            },
             "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
+              "text": {
+                "text": "AllSecure Mobile\nPhone OTT\nService"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
+            "visible": true,
+            "shape": "process",
+            "zIndex": 9,
+            "id": "166a4763-016a-486b-92df-a86adc8bab82",
             "data": {
-              "type": "tm.Flow",
-              "name": "1. Auth Challenge",
+              "name": "AllSecure Mobile\nPhone OTT\nService",
               "description": "",
+              "type": "tm.Process",
+              "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "isTrustBoundary": false
-            },
-            "id": "35f9f840-c060-4c31-bf9a-0e17a95ddf66",
-            "labels": [
-              {
-                "position": 0.5,
-                "attrs": {
-                  "label": {
-                    "text": "Login"
-                  }
+              "threats": [
+                {
+                  "id": "5fe69b33-e6be-426d-9b01-39715ca03cf1",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Attacker fakes not recieving a Token from App.\nD7/R3/E3/A2",
+                  "mitigation": "Sends Email to Account instead of giving a reset Token or anything of the sort.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 105,
+                  "score": "15"
                 }
-              }
-            ],
-            "source": {
-              "cell": "dec51efb-bf55-4b9c-a294-0e45f4e823f6"
-            },
-            "target": {
-              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Erwarteter OTT",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              ],
+              "hasOpenThreats": true,
               "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
-              "isTrustBoundary": false
-            },
-            "id": "2503a360-01b6-4464-b35f-42c6fb583348",
-            "labels": [
-              {
-                "position": 0.5,
-                "attrs": {
-                  "label": {
-                    "text": "1. Auth Challenge"
-                  }
-                }
-              }
-            ],
-            "source": {
-              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
-            },
-            "target": {
-              "cell": "94f68ce7-aa88-45a4-ba41-c0b62d6a959c"
-            },
-            "vertices": [
-              {
-                "x": 440,
-                "y": 110
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "2. Weiterleitung\nTelefonnummer",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
               "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "isTrustBoundary": false
-            },
-            "id": "63356151-e316-4a82-8224-9a7c729cfbee",
-            "labels": [
-              {
-                "position": 0.5,
-                "attrs": {
-                  "label": {
-                    "text": "Erwarteter OTT"
-                  }
-                }
-              }
-            ],
-            "source": {
-              "cell": "94f68ce7-aa88-45a4-ba41-c0b62d6a959c"
-            },
-            "target": {
-              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
-            },
-            "vertices": []
+              "isPublicNetwork": false
+            }
           },
           {
             "shape": "flow",
@@ -621,6 +543,55 @@
             ]
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Telefonanbieter - OTT",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "isTrustBoundary": false
+            },
+            "id": "48acb78a-9180-4346-b3ae-8f364cc7d9a5",
+            "labels": [
+              "Telefonanbieter - OTT"
+            ],
+            "source": {
+              "cell": "fd7303e8-29d2-4d76-bf7d-87eb619ede69"
+            },
+            "target": {
+              "cell": "166a4763-016a-486b-92df-a86adc8bab82"
+            },
+            "vertices": [
+              {
+                "x": 790,
+                "y": 360
+              }
+            ]
+          },
+          {
             "shape": "trust-broundary-curve",
             "width": 200,
             "height": 100,
@@ -704,33 +675,33 @@
               }
             ],
             "source": {
-              "x": 814,
-              "y": 419
+              "x": 540,
+              "y": 259
             },
             "target": {
-              "x": 813,
-              "y": 419
+              "x": 539,
+              "y": 259
             },
             "vertices": [
               {
-                "x": 734,
-                "y": 419
+                "x": 460,
+                "y": 259
               },
               {
-                "x": 664,
-                "y": 465
+                "x": 390,
+                "y": 305
               },
               {
-                "x": 694,
-                "y": 554
+                "x": 420,
+                "y": 394
               },
               {
-                "x": 959,
-                "y": 554
+                "x": 685,
+                "y": 394
               },
               {
-                "x": 984,
-                "y": 426
+                "x": 710,
+                "y": 266
               }
             ]
           },
@@ -777,8 +748,8 @@
             },
             "vertices": [
               {
-                "x": 834,
-                "y": 625
+                "x": 560,
+                "y": 465
               }
             ]
           },
@@ -952,7 +923,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -968,26 +940,350 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Log Data",
+              "name": "Wöchentlicher Report, verschlüsselt und signiert",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "682d85cc-8d9e-4b38-abc9-8d229bc03138",
+                  "title": "decrypted key",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Usage of old Hash-Function enables decryption of messages\nD7/R7/E10/A1",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 114,
+                  "score": "25"
+                }
+              ]
+            },
+            "id": "15d70aca-bf31-4844-8d34-d18afd028242",
+            "labels": [
+              "Wöchentlicher Report, verschlüsselt und signiert"
+            ],
+            "source": {
+              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
+            },
+            "target": {
+              "cell": "d4df6162-e99c-4a6f-b348-75186d42982b"
+            },
+            "vertices": [
+              {
+                "x": 266,
+                "y": -290
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Log(Login, OTT, Phone Number)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "a05c2745-4dc9-41d5-9d66-76f6b381ad0b",
+                  "title": "Man in the Middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Attacker gets access to all User Data through catching the data flow",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 115,
+                  "score": ""
+                }
+              ]
             },
             "id": "81c8482c-19ed-41ab-bae2-a5561223b4b5",
             "labels": [
-              "Log Data"
+              "Log(Login, OTT, Phone Number)"
             ],
             "source": {
-              "cell": "ea53894a-313c-4d46-83be-4e48a56d0b22"
+              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
             },
             "target": {
               "cell": "c2716661-ef88-48a8-8d0f-724e1923d562"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Monatlicher Report",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "c5eab285-7e48-4deb-966d-c9e0cc4b8d3e",
+                  "title": "Faking Signature",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Replacement of report which seems legit through Signature\nD6/R8/E8/A1",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 116,
+                  "score": "23"
+                }
+              ]
+            },
+            "id": "c57c4301-b727-4473-8708-cc6998aa3958",
+            "labels": [
+              "Monatlicher Report"
+            ],
+            "source": {
+              "cell": "d4df6162-e99c-4a6f-b348-75186d42982b"
+            },
+            "target": {
+              "cell": "d8f6021e-35e9-4644-b797-86aa8de4f16c"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Log Data gesendet",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "5ed9cade-c341-46ba-ba49-c7cb2544999d",
+                  "title": "Generation of Log entries",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Repeated generaltion of entries blocks the system through too many requests\nD5/R10/E3/A2",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 117,
+                  "score": ""
+                }
+              ]
+            },
+            "id": "381e7865-4684-4e45-ab86-8e78cf21d7b0",
+            "labels": [
+              "Log Data gesendet"
+            ],
+            "source": {
+              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
+            },
+            "target": {
+              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
+            },
+            "vertices": [
+              {
+                "x": 300,
+                "y": -70
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "358b9e10-f6e7-4582-8ab4-67238065faee",
+                  "title": "Man in the middle",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Attacker catches failed auth request and forges a new affimative one\nD8/R4/E7/A3",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 120,
+                  "score": "22"
+                }
+              ]
+            },
+            "id": "703adf31-d8ec-4278-8d80-4bb18a6353da",
+            "source": {
+              "cell": "166a4763-016a-486b-92df-a86adc8bab82"
+            },
+            "target": {
+              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
+            },
+            "vertices": [
+              {
+                "x": 520,
+                "y": 165
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "2. Weiterleitung\nTelefonnummer",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "8b28c298-8e97-4c42-a12b-5fccae41bd53",
+                  "title": "Manipulating expected ott",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "attacker changes ott to something they can use\nD10/R7/E10/A7",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 122,
+                  "score": "34"
+                }
+              ],
+              "isTrustBoundary": false
+            },
+            "id": "63356151-e316-4a82-8224-9a7c729cfbee",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Erwarteter OTT"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "94f68ce7-aa88-45a4-ba41-c0b62d6a959c"
+            },
+            "target": {
+              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
             },
             "vertices": []
           },
@@ -1011,7 +1307,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Log Data",
+              "name": "Erwarteter OTT",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -1020,65 +1316,31 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [],
+              "isTrustBoundary": false
             },
-            "id": "be3d2460-4c81-4972-9e34-a8a2667533de",
-            "source": {
-              "cell": "da614903-d09c-459f-8d2a-c7c5cae2b9e6"
-            },
-            "target": {
-              "cell": "ea53894a-313c-4d46-83be-4e48a56d0b22"
-            },
+            "id": "2503a360-01b6-4464-b35f-42c6fb583348",
             "labels": [
-              "Log Data"
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "1. Auth Challenge"
+                  }
+                }
               }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "OTT, Telefonanbieter",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "dd2908c2-15c9-49c6-8bd0-f02d01eab0c9",
+            ],
             "source": {
-              "cell": "fd7303e8-29d2-4d76-bf7d-87eb619ede69"
+              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
             },
             "target": {
-              "cell": "da614903-d09c-459f-8d2a-c7c5cae2b9e6"
+              "cell": "94f68ce7-aa88-45a4-ba41-c0b62d6a959c"
             },
             "vertices": [
               {
-                "x": 580,
-                "y": 330
+                "x": 440,
+                "y": -10
               }
-            ],
-            "labels": [
-              "OTT, Telefonanbieter"
             ]
           },
           {
@@ -1101,7 +1363,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "OTT, Telefonnummer",
+              "name": "1. Auth Challenge",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -1110,155 +1372,51 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "6fab69c7-ce8d-4101-bafa-8ec88c6d5f6c",
+                  "title": "New STRIDE threat",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Attacker brute forces the Credentials.\nD2/R6/E1/A5\n\nMITRE Attack : ID: T1110 Brute force\nCAPEC-49: Password Brute Forcing",
+                  "mitigation": "Limit Login Attempts after a certain amount of failed Login tries.\n\nMITRE D3fend : D3-AL Account locking\n\ninfinitely delays brute force attacks because account will be locked after a couple of tries.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 107,
+                  "score": "14"
+                }
+              ],
+              "isTrustBoundary": false
             },
-            "id": "346a3ca3-c7ec-4188-b0d5-e2d34163cf6f",
+            "id": "35f9f840-c060-4c31-bf9a-0e17a95ddf66",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Login"
+                  }
+                }
+              }
+            ],
             "source": {
-              "cell": "da614903-d09c-459f-8d2a-c7c5cae2b9e6"
+              "cell": "dec51efb-bf55-4b9c-a294-0e45f4e823f6"
             },
             "target": {
               "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
             },
-            "labels": [
-              "OTT, Telefonnummer"
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "693827d5-e561-4f30-b262-b85d63eba1c1",
-            "source": {
-              "cell": "ea53894a-313c-4d46-83be-4e48a56d0b22"
-            },
-            "target": {
-              "cell": "a68de583-0c37-4c4d-9b31-4aea3941c241"
-            },
             "vertices": [
               {
-                "x": 147.5,
-                "y": -270
+                "x": 237,
+                "y": 39
               }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "e2595376-54e8-4b36-acdf-d953aec818c9",
-            "source": {
-              "cell": "a68de583-0c37-4c4d-9b31-4aea3941c241"
-            },
-            "target": {
-              "cell": "d7f3ad96-d0a9-41f7-9646-4a353bd2ed47"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Log Data",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "0fd91f17-2c44-48bf-8321-27f74cec5068",
-            "source": {
-              "cell": "94f68ce7-aa88-45a4-ba41-c0b62d6a959c"
-            },
-            "target": {
-              "cell": "ea53894a-313c-4d46-83be-4e48a56d0b22"
-            },
-            "vertices": [
-              {
-                "x": 340,
-                "y": -30
-              }
-            ],
-            "labels": [
-              "Log Data"
             ]
           },
           {
             "position": {
-              "x": 493,
-              "y": -224
+              "x": 470,
+              "y": -107
             },
             "size": {
               "width": 120,
@@ -1269,11 +1427,13 @@
                 "text": "Log-DB"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -1291,14 +1451,29 @@
               "storesCredentials": false,
               "isEncrypted": true,
               "isSigned": true,
-              "hasOpenThreats": false,
-              "threats": []
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "92a93355-f2fe-4fe0-a5be-d1151f36ba9d",
+                  "title": "sql injection",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "attacker changes log entires\nD4/R7/E3/A1",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 119,
+                  "score": "15"
+                }
+              ],
+              "storesInventory": null
             }
           },
           {
             "position": {
-              "x": 695,
-              "y": 471
+              "x": 421,
+              "y": 311
             },
             "size": {
               "width": 120,
@@ -1332,7 +1507,8 @@
               "isEncrypted": false,
               "isSigned": false,
               "hasOpenThreats": false,
-              "threats": []
+              "threats": [],
+              "storesInventory": null
             }
           },
           {
@@ -1380,82 +1556,59 @@
           },
           {
             "position": {
-              "x": 97.99999999999994,
-              "y": -180
+              "x": 199.99999999999994,
+              "y": -240
             },
             "size": {
-              "width": 90,
-              "height": 100
+              "width": 120,
+              "height": 120
             },
             "attrs": {
               "text": {
-                "text": "SIEM\nSystem"
+                "text": "SIEM - System"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "process",
-            "id": "ea53894a-313c-4d46-83be-4e48a56d0b22",
             "zIndex": 14,
+            "id": "8dab72fd-55be-4301-94af-b85ffeeafcab",
             "data": {
               "type": "tm.Process",
-              "name": "SIEM\nSystem",
+              "name": "SIEM - System",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "f32b105f-d40b-4ae3-8564-962bf69e7b09",
+                  "title": "Changing Log Information",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "supression of certain logging entries through sql injection\nD5/R8/E9/A2",
+                  "mitigation": "verify user input and usage of prepared statements",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 110,
+                  "score": "24"
+                }
+              ]
             }
           },
           {
             "position": {
-              "x": 40,
-              "y": 123.00000000000009
-            },
-            "size": {
-              "width": 100,
-              "height": 100
-            },
-            "attrs": {
-              "text": {
-                "text": "Allsecure\nMobile Phone\nOTT"
-              },
-              "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "process",
-            "id": "da614903-d09c-459f-8d2a-c7c5cae2b9e6",
-            "zIndex": 15,
-            "data": {
-              "type": "tm.Process",
-              "name": "Allsecure\nMobile Phone\nOTT",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "handlesCardPayment": false,
-              "handlesGoodsOrServices": false,
-              "isWebApplication": false,
-              "privilegeLevel": "",
-              "threats": []
-            }
-          },
-          {
-            "position": {
-              "x": 97.99999999999994,
-              "y": -373
+              "x": 458.5,
+              "y": -230
             },
             "size": {
               "width": 112.5,
@@ -1463,69 +1616,97 @@
             },
             "attrs": {
               "text": {
-                "text": "Management"
+                "text": "Mnanagement"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "actor",
-            "id": "a68de583-0c37-4c4d-9b31-4aea3941c241",
             "zIndex": 16,
+            "id": "d4df6162-e99c-4a6f-b348-75186d42982b",
             "data": {
               "type": "tm.Actor",
-              "name": "Management",
+              "name": "Mnanagement",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "17ca21af-4c80-44ea-989d-28fd8df266c6",
+                  "title": "Information Disclosure through malicious insider",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Malicious insider leaks Logs\nD10/R1/E10/A10",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 109,
+                  "score": "31"
+                }
+              ]
             }
           },
           {
             "position": {
-              "x": 370,
-              "y": -400
+              "x": 640,
+              "y": -350
             },
             "size": {
-              "width": 190,
-              "height": 140
+              "width": 90,
+              "height": 90
             },
             "attrs": {
               "text": {
                 "text": "Bedrohungsmodell"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "process",
-            "id": "d7f3ad96-d0a9-41f7-9646-4a353bd2ed47",
             "zIndex": 17,
+            "id": "d8f6021e-35e9-4644-b797-86aa8de4f16c",
             "data": {
               "type": "tm.Process",
               "name": "Bedrohungsmodell",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "736dbd82-f5b5-4709-80ae-a427ba24c72d",
+                  "title": "leakage of the monthly report",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Malicious Insider leaks monthly report\nD10/R1/E10/A4",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 113,
+                  "score": ""
+                }
+              ]
             }
           }
         ],
         "version": "2.1.1",
-        "title": "DevSecOps_P3",
+        "title": "Architekturdiagramm",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
         "id": 0,
         "diagramType": "STRIDE"
@@ -1533,7 +1714,7 @@
     ],
     "reviewer": "Georg Neugebauer",
     "diagramTop": 10,
-    "threatTop": 106
+    "threatTop": 123
   },
   "version": "2.1.1"
 }
