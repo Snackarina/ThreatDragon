@@ -121,14 +121,27 @@
                   "id": "001dedbd-a05b-4510-82b7-6b8023cb451f",
                   "title": "Reverse Shell",
                   "status": "Open",
-                  "severity": "High",
+                  "severity": "Low",
                   "type": "Elevation of privilege",
                   "description": "Creation of reverse shell through usage of the loggin system from old nginx server logging, which was able to connect to an ldap.\nD10/R10/E10/A10\n\nMitre Capec: 242 Code Injection\nMitre Attack: T1190 Exploit Public Facing Application",
                   "mitigation": "Disable the LDAP Connection Capability, so the nginx server cant establish \"ldap\"-connections and thus not connect to the reverse shell.\n\nD:3/R:0/E:0/A:3\nMitre D3FEND: D3-ACh Application Configuration Hardening\n\n",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 112,
-                  "score": "40"
+                  "score": "3"
+                },
+                {
+                  "id": "e7b5f944-b45e-413b-bd78-f62f0d850f6b",
+                  "title": "Mobile App not secured properly",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "Mobile App OTT is secured by a pin which is stored locally and unencrypted\nD:6/R:3/E:7/A:2\n\nCAPEC: 1 Accessing Functionality Not Properly Constrained by ACLs\nATTACK: T1409 Stored Application Data",
+                  "mitigation": "Application is unlocked by credentials synchronized with the mobile phone (eg fingerprint)\n\nMASVS-Auth-2 : App performs local authentication securely according to the platform best practices.\nD:3/R:1/E:1/A:1 -> 6",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 124,
+                  "score": "6"
                 }
               ],
               "hasOpenThreats": true,
@@ -172,14 +185,14 @@
                   "id": "67b24d18-d0e0-4928-a935-b86883173d3c",
                   "title": "Spoofing of User Identity",
                   "status": "Mitigated",
-                  "severity": "Medium",
+                  "severity": "Low",
                   "type": "Spoofing",
                   "description": "Attacker pretends to be a registered User , but will use his own phone number\nD8/R3/E3/A3/\n\nCapec 151 Identity Spoofing\nAttack: T1111 MFA Interception",
                   "mitigation": "Auth with Password, OTT and another form of Auth, e.g dongle, which has to be faked too in order to get access illegally\nD3-MFA Multi Factor Authentication\n\nMonitoring of unusual Login Circumstances e.g. Changed Location, multiple wrong Auth Tries, then sending warning E-Mails to User\nD3-UGLPA User Geolocation Logon Patern Analysis\n\nD:3/R:1/E:1/A:1 -> 6",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 104,
-                  "score": "17"
+                  "score": "6"
                 }
               ],
               "hasOpenThreats": false,
@@ -356,14 +369,14 @@
                   "id": "5fe69b33-e6be-426d-9b01-39715ca03cf1",
                   "title": "OTT Scam",
                   "status": "Mitigated",
-                  "severity": "Medium",
+                  "severity": "Low",
                   "type": "Repudiation",
                   "description": "Attacker fakes not recieving a Token from App, then calls support for help and \nD7/R3/E3/A2\n\nCAPEC: 98 Phishing\nAttack: T1598 Phishing for Information",
                   "mitigation": "Sends Email to Account instead of giving a reset Token or anything of the sort.\nD:1/R:2/E:0/A:2\nD3FEND: D3-IRA Identifier Reputation Analysis",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 105,
-                  "score": "15"
+                  "score": "2"
                 }
               ],
               "hasOpenThreats": false,
@@ -1075,6 +1088,9 @@
               "threats": []
             },
             "id": "f57410af-cfcb-486a-825c-edb692e3a203",
+            "labels": [
+              "Log Data"
+            ],
             "source": {
               "cell": "166a4763-016a-486b-92df-a86adc8bab82"
             },
@@ -1085,270 +1101,6 @@
               {
                 "x": 230,
                 "y": -10
-              }
-            ],
-            "labels": [
-              "Log Data"
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "OTT",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "358b9e10-f6e7-4582-8ab4-67238065faee",
-                  "title": "Man in the middle",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "Attacker catches failed auth request and forges a new affimative one, because traffic is over http and not encrypted\nD8/R4/E7/A3\n\nCAPEC: 384 Application API Message Manipulation vie Man in the Middle\nAttack: T1565 Data Manipulation",
-                  "mitigation": "Encrypting traffic with https, so the MitM cant read the content of the traffic\nD:0/R:0/E:0/A:0 -> 0\n\nD3FEND: D3-ET Encrypted Tunnel\n",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 120,
-                  "score": "22"
-                }
-              ]
-            },
-            "id": "703adf31-d8ec-4278-8d80-4bb18a6353da",
-            "source": {
-              "cell": "166a4763-016a-486b-92df-a86adc8bab82"
-            },
-            "target": {
-              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
-            },
-            "vertices": [
-              {
-                "x": 420,
-                "y": 150
-              }
-            ],
-            "labels": [
-              "OTT"
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "1. Auth Challenge",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "6fab69c7-ce8d-4101-bafa-8ec88c6d5f6c",
-                  "title": "New STRIDE threat",
-                  "status": "Mitigated",
-                  "severity": "Low",
-                  "type": "Tampering",
-                  "description": "Attacker brute forces the Credentials.\nD2/R6/E1/A5\n\nMITRE Attack : ID: T1110 Brute force\nCAPEC-49: Password Brute Forcing",
-                  "mitigation": "Limit Login Attempts after a certain amount of failed Login tries. Thus, every login attempt therafter will be blocked and fail.\nAccount will be flagged in DB as locked.\nD:0/R:0/E:0/A:0 -> 0\n\nMITRE D3fend : D3-AL Account locking",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 107,
-                  "score": "14"
-                }
-              ],
-              "isTrustBoundary": false
-            },
-            "id": "35f9f840-c060-4c31-bf9a-0e17a95ddf66",
-            "labels": [
-              {
-                "position": 0.5,
-                "attrs": {
-                  "label": {
-                    "text": "Login"
-                  }
-                }
-              }
-            ],
-            "source": {
-              "cell": "dec51efb-bf55-4b9c-a294-0e45f4e823f6"
-            },
-            "target": {
-              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
-            },
-            "vertices": [
-              {
-                "x": 237,
-                "y": 39
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Log Data gesendet",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "5ed9cade-c341-46ba-ba49-c7cb2544999d",
-                  "title": "Generation of Log entries",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Denial of service",
-                  "description": "Repeated generaltion of entries blocks the system through too many requests\nD5/R10/E3/A2\n\nMitre Attack: T0814 Denial of Service\nMitre Capec: 125 Flooding",
-                  "mitigation": "restrict Netowrk Traffic after too many connections in a short time\n\nMitre D3FEND: D3-ITF Inbound Traffic Filtering\n\nD:1/R:3/E:1/A:1 -> 5",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 117,
-                  "score": "20"
-                }
-              ]
-            },
-            "id": "381e7865-4684-4e45-ab86-8e78cf21d7b0",
-            "labels": [
-              "Log Data gesendet"
-            ],
-            "source": {
-              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
-            },
-            "target": {
-              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
-            },
-            "vertices": [
-              {
-                "x": 310,
-                "y": -60
-              },
-              {
-                "x": 300,
-                "y": -70
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Wöchentlicher Report, verschlüsselt und signiert",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "682d85cc-8d9e-4b38-abc9-8d229bc03138",
-                  "title": "decrypted key",
-                  "status": "Mitigated",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "Usage of old Hash-Function enables decryption of messages\nD7/R7/E10/A1\n\nCapec:  97 Cryptanalysis\nAttack: T1020 Automated Extraction",
-                  "mitigation": "Updating to a modern Hashing Algorithm, eg SHA256\n\nD3-MENC: Message Encryption\n\nD:4/R:1/E:1/A:1 -> 7",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 114,
-                  "score": "25"
-                }
-              ]
-            },
-            "id": "15d70aca-bf31-4844-8d34-d18afd028242",
-            "labels": [
-              "Wöchentlicher Report, verschlüsselt und signiert"
-            ],
-            "source": {
-              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
-            },
-            "target": {
-              "cell": "d4df6162-e99c-4a6f-b348-75186d42982b"
-            },
-            "vertices": [
-              {
-                "x": 266,
-                "y": -290
               }
             ]
           },
@@ -1466,6 +1218,267 @@
               "cell": "d8f6021e-35e9-4644-b797-86aa8de4f16c"
             },
             "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Log Data gesendet",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "5ed9cade-c341-46ba-ba49-c7cb2544999d",
+                  "title": "Generation of Log entries",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Repeated generaltion of entries blocks the system through too many requests\nD5/R10/E3/A2\n\nMitre Attack: T0814 Denial of Service\nMitre Capec: 125 Flooding",
+                  "mitigation": "restrict Netowrk Traffic after too many connections in a short time\n\nMitre D3FEND: D3-ITF Inbound Traffic Filtering\n\nD:1/R:3/E:1/A:1 -> 5",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 117,
+                  "score": "20"
+                }
+              ]
+            },
+            "id": "381e7865-4684-4e45-ab86-8e78cf21d7b0",
+            "labels": [
+              "Log Data gesendet"
+            ],
+            "source": {
+              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
+            },
+            "target": {
+              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
+            },
+            "vertices": [
+              {
+                "x": 310,
+                "y": -60
+              },
+              {
+                "x": 300,
+                "y": -70
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Wöchentlicher Report, verschlüsselt und signiert",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "682d85cc-8d9e-4b38-abc9-8d229bc03138",
+                  "title": "decrypted key",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Usage of old Hash-Function enables decryption of messages\nD7/R7/E10/A1\n\nCapec:  97 Cryptanalysis\nAttack: T1020 Automated Extraction",
+                  "mitigation": "Updating to a modern Hashing Algorithm, eg SHA256\n\nD3fend: D3-MENC: Message Encryption\nOwasp ASVS: V6.2 Algorithms\n\nD:4/R:1/E:1/A:1 -> 7",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 114,
+                  "score": "25"
+                }
+              ]
+            },
+            "id": "15d70aca-bf31-4844-8d34-d18afd028242",
+            "labels": [
+              "Wöchentlicher Report, verschlüsselt und signiert"
+            ],
+            "source": {
+              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
+            },
+            "target": {
+              "cell": "d4df6162-e99c-4a6f-b348-75186d42982b"
+            },
+            "vertices": [
+              {
+                "x": 266,
+                "y": -290
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "1. Auth Challenge",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "6fab69c7-ce8d-4101-bafa-8ec88c6d5f6c",
+                  "title": "Brute Forcing Credentials",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Attacker brute forces the Credentials.\nD2/R6/E1/A5\n\nMITRE Attack : ID: T1110 Brute force\nCAPEC-49: Password Brute Forcing",
+                  "mitigation": "Limit Login Attempts after a certain amount of failed Login tries. Thus, every login attempt therafter will be blocked and fail.\nAccount will be flagged in DB as locked.\nD:0/R:0/E:0/A:0 -> 0\n\nMITRE D3fend : D3-AL Account locking",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 107,
+                  "score": "14"
+                }
+              ],
+              "isTrustBoundary": false
+            },
+            "id": "35f9f840-c060-4c31-bf9a-0e17a95ddf66",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Login"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "dec51efb-bf55-4b9c-a294-0e45f4e823f6"
+            },
+            "target": {
+              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
+            },
+            "vertices": [
+              {
+                "x": 237,
+                "y": 39
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "OTT",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "358b9e10-f6e7-4582-8ab4-67238065faee",
+                  "title": "Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Attacker catches failed auth request and forges a new affimative one, because traffic is over http and not encrypted\nD8/R4/E7/A3\n\nCAPEC: 384 Application API Message Manipulation vie Man in the Middle\nAttack: T1565 Data Manipulation",
+                  "mitigation": "Encrypting traffic with https, so the MitM cant read the content of the traffic\nD:0/R:0/E:0/A:0 -> 0\n\nD3FEND: D3-ET Encrypted Tunnel\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 120,
+                  "score": "0"
+                }
+              ]
+            },
+            "id": "703adf31-d8ec-4278-8d80-4bb18a6353da",
+            "labels": [
+              "OTT"
+            ],
+            "source": {
+              "cell": "166a4763-016a-486b-92df-a86adc8bab82"
+            },
+            "target": {
+              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
+            },
+            "vertices": [
+              {
+                "x": 420,
+                "y": 150
+              }
+            ]
           },
           {
             "position": {
@@ -1766,7 +1779,7 @@
     ],
     "reviewer": "Georg Neugebauer",
     "diagramTop": 10,
-    "threatTop": 123
+    "threatTop": 124
   },
   "version": "2.1.1"
 }
