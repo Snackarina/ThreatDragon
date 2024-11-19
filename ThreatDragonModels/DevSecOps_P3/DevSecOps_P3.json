@@ -28,11 +28,16 @@
               "height": 660
             },
             "shape": "trust-boundary-box",
+            "attrs": {
+              "headerText": {
+                "text": "Allsecure"
+              }
+            },
             "id": "fe873b46-b9d1-4586-a4d8-272b53f5dfb1",
             "zIndex": -1,
             "data": {
               "type": "tm.BoundaryBox",
-              "name": "Trust Boundary",
+              "name": "Allsecure",
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false
@@ -157,7 +162,9 @@
               "isBidirectional": false,
               "protocol": "",
               "isEncrypted": false,
-              "isPublicNetwork": false
+              "isPublicNetwork": false,
+              "isWebApplication": null,
+              "handlesCardPayment": null
             }
           },
           {
@@ -389,7 +396,7 @@
             "vertices": [
               {
                 "x": 440,
-                "y": -10
+                "y": 110
               }
             ]
           },
@@ -961,7 +968,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Log(Login, OTT, Phone Number)",
+              "name": "Log Data",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -974,7 +981,7 @@
             },
             "id": "81c8482c-19ed-41ab-bae2-a5561223b4b5",
             "labels": [
-              "Log(Login, OTT, Phone Number)"
+              "Log Data"
             ],
             "source": {
               "cell": "ea53894a-313c-4d46-83be-4e48a56d0b22"
@@ -1117,6 +1124,138 @@
             ]
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "693827d5-e561-4f30-b262-b85d63eba1c1",
+            "source": {
+              "cell": "ea53894a-313c-4d46-83be-4e48a56d0b22"
+            },
+            "target": {
+              "cell": "a68de583-0c37-4c4d-9b31-4aea3941c241"
+            },
+            "vertices": [
+              {
+                "x": 147.5,
+                "y": -270
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "e2595376-54e8-4b36-acdf-d953aec818c9",
+            "source": {
+              "cell": "a68de583-0c37-4c4d-9b31-4aea3941c241"
+            },
+            "target": {
+              "cell": "d7f3ad96-d0a9-41f7-9646-4a353bd2ed47"
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Log Data",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "0fd91f17-2c44-48bf-8321-27f74cec5068",
+            "source": {
+              "cell": "94f68ce7-aa88-45a4-ba41-c0b62d6a959c"
+            },
+            "target": {
+              "cell": "ea53894a-313c-4d46-83be-4e48a56d0b22"
+            },
+            "vertices": [
+              {
+                "x": 340,
+                "y": -30
+              }
+            ],
+            "labels": [
+              "Log Data"
+            ]
+          },
+          {
             "position": {
               "x": 493,
               "y": -224
@@ -1242,7 +1381,7 @@
           {
             "position": {
               "x": 97.99999999999994,
-              "y": -179.99999999999994
+              "y": -180
             },
             "size": {
               "width": 90,
@@ -1302,6 +1441,77 @@
             "data": {
               "type": "tm.Process",
               "name": "Allsecure\nMobile Phone\nOTT",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 97.99999999999994,
+              "y": -373
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Management"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "id": "a68de583-0c37-4c4d-9b31-4aea3941c241",
+            "zIndex": 16,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Management",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 370,
+              "y": -400
+            },
+            "size": {
+              "width": 190,
+              "height": 140
+            },
+            "attrs": {
+              "text": {
+                "text": "Bedrohungsmodell"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "id": "d7f3ad96-d0a9-41f7-9646-4a353bd2ed47",
+            "zIndex": 17,
+            "data": {
+              "type": "tm.Process",
+              "name": "Bedrohungsmodell",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
