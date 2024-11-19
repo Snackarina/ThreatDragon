@@ -145,7 +145,7 @@
                 }
               ],
               "hasOpenThreats": true,
-              "isWebApplication": null,
+              "isWebApplication": true,
               "handlesCardPayment": null,
               "handlesGoodsOrServices": null
             }
