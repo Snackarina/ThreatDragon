@@ -124,7 +124,7 @@
                   "severity": "High",
                   "type": "Elevation of privilege",
                   "description": "Creation of reverse shell through usage of the loggin system from old nginx server logging, which was able to connect to an ldap.\nD10/R10/E10/A10\n\nMitre Capec: 242 Code Injection\nMitre Attack: T1190 Exploit Public Facing Application",
-                  "mitigation": "Disable the LDAP Connection Capability, so the nginx server cant establish \"ldap\"-connections and thus not connect to the reverse shell.\n\nD:3/R:/E:/A:\n",
+                  "mitigation": "Disable the LDAP Connection Capability, so the nginx server cant establish \"ldap\"-connections and thus not connect to the reverse shell.\n\nD:3/R:0/E:0/A:3\nMitre D3FEND: D3-ACh Application Configuration Hardening\n\n",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 112,
@@ -151,8 +151,8 @@
                 "text": "2-Faktor-Authe\nntifizierungsdi\nenst"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -171,18 +171,18 @@
                 {
                   "id": "67b24d18-d0e0-4928-a935-b86883173d3c",
                   "title": "Spoofing of User Identity",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Spoofing",
-                  "description": "Attacker pretends to be a registered User , but will use his own phone number\n\nD8/R3/E3/A3/",
-                  "mitigation": "Auth with OTT and another form of Auth\nMonitoring of unusual Login Circumstances e.g. Changed Location, multiple wrong Auth Tries",
+                  "description": "Attacker pretends to be a registered User , but will use his own phone number\nD8/R3/E3/A3/\n\nCapec 151 Identity Spoofing\nAttack: T1111 MFA Interception",
+                  "mitigation": "Auth with Password, OTT and another form of Auth, e.g dongle, which has to be faked too in order to get access illegally\nD3-MFA Multi Factor Authentication\n\nMonitoring of unusual Login Circumstances e.g. Changed Location, multiple wrong Auth Tries, then sending warning E-Mails to User\nD3-UGLPA User Geolocation Logon Patern Analysis\n\nD:3/R:1/E:1/A:1 -> 6",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 104,
                   "score": "17"
                 }
               ],
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isBidirectional": false,
               "protocol": "",
               "isEncrypted": false,
@@ -323,8 +323,8 @@
           },
           {
             "position": {
-              "x": 660,
-              "y": 110
+              "x": 209.99999999999994,
+              "y": 123.00000000000009
             },
             "size": {
               "width": 100,
@@ -335,8 +335,8 @@
                 "text": "AllSecure Mobile\nPhone OTT\nService"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -354,23 +354,25 @@
               "threats": [
                 {
                   "id": "5fe69b33-e6be-426d-9b01-39715ca03cf1",
-                  "title": "New STRIDE threat",
-                  "status": "Open",
+                  "title": "OTT Scam",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Repudiation",
-                  "description": "Attacker fakes not recieving a Token from App.\nD7/R3/E3/A2",
-                  "mitigation": "Sends Email to Account instead of giving a reset Token or anything of the sort.",
+                  "description": "Attacker fakes not recieving a Token from App, then calls support for help and \nD7/R3/E3/A2\n\nCAPEC: 98 Phishing\nAttack: T1598 Phishing for Information",
+                  "mitigation": "Sends Email to Account instead of giving a reset Token or anything of the sort.\nD:1/R:2/E:0/A:2\nD3FEND: D3-IRA Identifier Reputation Analysis",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 105,
                   "score": "15"
                 }
               ],
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isBidirectional": false,
               "protocol": "",
               "isEncrypted": false,
-              "isPublicNetwork": false
+              "isPublicNetwork": false,
+              "isWebApplication": null,
+              "handlesCardPayment": null
             }
           },
           {
@@ -586,8 +588,8 @@
             },
             "vertices": [
               {
-                "x": 790,
-                "y": 360
+                "x": 460,
+                "y": 250
               }
             ]
           },
@@ -940,308 +942,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Wöchentlicher Report, verschlüsselt und signiert",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "682d85cc-8d9e-4b38-abc9-8d229bc03138",
-                  "title": "decrypted key",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "Usage of old Hash-Function enables decryption of messages\nD7/R7/E10/A1",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 114,
-                  "score": "25"
-                }
-              ]
-            },
-            "id": "15d70aca-bf31-4844-8d34-d18afd028242",
-            "labels": [
-              "Wöchentlicher Report, verschlüsselt und signiert"
-            ],
-            "source": {
-              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
-            },
-            "target": {
-              "cell": "d4df6162-e99c-4a6f-b348-75186d42982b"
-            },
-            "vertices": [
-              {
-                "x": 266,
-                "y": -290
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Log(Login, OTT, Phone Number)",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "a05c2745-4dc9-41d5-9d66-76f6b381ad0b",
-                  "title": "Man in the Middle",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Information disclosure",
-                  "description": "Attacker gets access to all User Data through catching the data flow",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 115,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "81c8482c-19ed-41ab-bae2-a5561223b4b5",
-            "labels": [
-              "Log(Login, OTT, Phone Number)"
-            ],
-            "source": {
-              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
-            },
-            "target": {
-              "cell": "c2716661-ef88-48a8-8d0f-724e1923d562"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Monatlicher Report",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "c5eab285-7e48-4deb-966d-c9e0cc4b8d3e",
-                  "title": "Faking Signature",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "Replacement of report which seems legit through Signature\nD6/R8/E8/A1",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 116,
-                  "score": "23"
-                }
-              ]
-            },
-            "id": "c57c4301-b727-4473-8708-cc6998aa3958",
-            "labels": [
-              "Monatlicher Report"
-            ],
-            "source": {
-              "cell": "d4df6162-e99c-4a6f-b348-75186d42982b"
-            },
-            "target": {
-              "cell": "d8f6021e-35e9-4644-b797-86aa8de4f16c"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Log Data gesendet",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "5ed9cade-c341-46ba-ba49-c7cb2544999d",
-                  "title": "Generation of Log entries",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Denial of service",
-                  "description": "Repeated generaltion of entries blocks the system through too many requests\nD5/R10/E3/A2",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 117,
-                  "score": ""
-                }
-              ]
-            },
-            "id": "381e7865-4684-4e45-ab86-8e78cf21d7b0",
-            "labels": [
-              "Log Data gesendet"
-            ],
-            "source": {
-              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
-            },
-            "target": {
-              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
-            },
-            "vertices": [
-              {
-                "x": 300,
-                "y": -70
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "358b9e10-f6e7-4582-8ab4-67238065faee",
-                  "title": "Man in the middle",
-                  "status": "Open",
-                  "severity": "Medium",
-                  "type": "Tampering",
-                  "description": "Attacker catches failed auth request and forges a new affimative one\nD8/R4/E7/A3",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 120,
-                  "score": "22"
-                }
-              ]
-            },
-            "id": "703adf31-d8ec-4278-8d80-4bb18a6353da",
-            "source": {
-              "cell": "166a4763-016a-486b-92df-a86adc8bab82"
-            },
-            "target": {
-              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
-            },
-            "vertices": [
-              {
-                "x": 520,
-                "y": 165
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "2. Weiterleitung\nTelefonnummer",
               "description": "",
               "outOfScope": false,
@@ -1363,6 +1063,116 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
+              "name": "Log Data",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "f57410af-cfcb-486a-825c-edb692e3a203",
+            "source": {
+              "cell": "166a4763-016a-486b-92df-a86adc8bab82"
+            },
+            "target": {
+              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
+            },
+            "vertices": [
+              {
+                "x": 230,
+                "y": -10
+              }
+            ],
+            "labels": [
+              "Log Data"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "OTT",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "358b9e10-f6e7-4582-8ab4-67238065faee",
+                  "title": "Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Attacker catches failed auth request and forges a new affimative one, because traffic is over http and not encrypted\nD8/R4/E7/A3\n\nCAPEC: 384 Application API Message Manipulation vie Man in the Middle\nAttack: T1565 Data Manipulation",
+                  "mitigation": "Encrypting traffic with https, so the MitM cant read the content of the traffic\nD:0/R:0/E:0/A:0 -> 0\n\nD3FEND: D3-ET Encrypted Tunnel\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 120,
+                  "score": "22"
+                }
+              ]
+            },
+            "id": "703adf31-d8ec-4278-8d80-4bb18a6353da",
+            "source": {
+              "cell": "166a4763-016a-486b-92df-a86adc8bab82"
+            },
+            "target": {
+              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
+            },
+            "vertices": [
+              {
+                "x": 420,
+                "y": 150
+              }
+            ],
+            "labels": [
+              "OTT"
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
               "name": "1. Auth Challenge",
               "description": "",
               "outOfScope": false,
@@ -1414,6 +1224,250 @@
             ]
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Log Data gesendet",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "5ed9cade-c341-46ba-ba49-c7cb2544999d",
+                  "title": "Generation of Log entries",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Repeated generaltion of entries blocks the system through too many requests\nD5/R10/E3/A2\n\nMitre Attack: T0814 Denial of Service\nMitre Capec: 125 Flooding",
+                  "mitigation": "restrict Netowrk Traffic after too many connections in a short time\n\nMitre D3FEND: D3-ITF Inbound Traffic Filtering\n\nD:1/R:3/E:1/A:1 -> 5",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 117,
+                  "score": "20"
+                }
+              ]
+            },
+            "id": "381e7865-4684-4e45-ab86-8e78cf21d7b0",
+            "labels": [
+              "Log Data gesendet"
+            ],
+            "source": {
+              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
+            },
+            "target": {
+              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
+            },
+            "vertices": [
+              {
+                "x": 310,
+                "y": -60
+              },
+              {
+                "x": 300,
+                "y": -70
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Wöchentlicher Report, verschlüsselt und signiert",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "682d85cc-8d9e-4b38-abc9-8d229bc03138",
+                  "title": "decrypted key",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Usage of old Hash-Function enables decryption of messages\nD7/R7/E10/A1\n\nCapec:  97 Cryptanalysis\nAttack: T1020 Automated Extraction",
+                  "mitigation": "Updating to a modern Hashing Algorithm, eg SHA256\n\nD3-MENC: Message Encryption\n\nD:4/R:1/E:1/A:1 -> 7",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 114,
+                  "score": "25"
+                }
+              ]
+            },
+            "id": "15d70aca-bf31-4844-8d34-d18afd028242",
+            "labels": [
+              "Wöchentlicher Report, verschlüsselt und signiert"
+            ],
+            "source": {
+              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
+            },
+            "target": {
+              "cell": "d4df6162-e99c-4a6f-b348-75186d42982b"
+            },
+            "vertices": [
+              {
+                "x": 266,
+                "y": -290
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Log(Login, OTT, Phone Number)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "a05c2745-4dc9-41d5-9d66-76f6b381ad0b",
+                  "title": "Man in the Middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Attacker gets access to all User Data through catching the data flow\n\nD:8/R:10/E:5/A:10\n\nCAPEC: 94: Adversary in the Middle\nAttack: T1557 Adversary in the Middle",
+                  "mitigation": "Encrypt the tunnel\n\nD3-ET Encrypted Tunnels\n\nD:1/R:2/E:1/A:1 -> 5",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 115,
+                  "score": "33"
+                }
+              ]
+            },
+            "id": "81c8482c-19ed-41ab-bae2-a5561223b4b5",
+            "labels": [
+              "Log(Login, OTT, Phone Number)"
+            ],
+            "source": {
+              "cell": "8dab72fd-55be-4301-94af-b85ffeeafcab"
+            },
+            "target": {
+              "cell": "c2716661-ef88-48a8-8d0f-724e1923d562"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Monatlicher Report",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "c5eab285-7e48-4deb-966d-c9e0cc4b8d3e",
+                  "title": "Faking Signature",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Replacement of report which seems legit through Signature\nD6/R8/E8/A1\n\nCAPEC: 485 Signature Spoof\nAttack: T1565 Data Manipulation / T0005 Defense Evasion",
+                  "mitigation": "",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 116,
+                  "score": "23"
+                }
+              ]
+            },
+            "id": "c57c4301-b727-4473-8708-cc6998aa3958",
+            "labels": [
+              "Monatlicher Report"
+            ],
+            "source": {
+              "cell": "d4df6162-e99c-4a6f-b348-75186d42982b"
+            },
+            "target": {
+              "cell": "d8f6021e-35e9-4644-b797-86aa8de4f16c"
+            },
+            "vertices": []
+          },
+          {
             "position": {
               "x": 470,
               "y": -107
@@ -1427,13 +1481,11 @@
                 "text": "Log-DB"
               },
               "topLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -1451,16 +1503,16 @@
               "storesCredentials": false,
               "isEncrypted": true,
               "isSigned": true,
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "threats": [
                 {
                   "id": "92a93355-f2fe-4fe0-a5be-d1151f36ba9d",
                   "title": "sql injection",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Tampering",
-                  "description": "attacker changes log entires\nD4/R7/E3/A1",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "attacker changes log entires\nD4/R7/E3/A1\n\nCAPEC: 66 SQL-Injection\nAttack: T1565 Data Manipulation",
+                  "mitigation": "prepared Statements and Input validation, so that the sql statement is not being executed\n\nD3FEND: D3-ACH Application Configuration Hardening\n\nD:0/R:0/E:0/A:0",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 119,
@@ -1568,8 +1620,8 @@
                 "text": "SIEM - System"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -1583,7 +1635,7 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
@@ -1592,11 +1644,11 @@
                 {
                   "id": "f32b105f-d40b-4ae3-8564-962bf69e7b09",
                   "title": "Changing Log Information",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Tampering",
-                  "description": "supression of certain logging entries through sql injection\nD5/R8/E9/A2",
-                  "mitigation": "verify user input and usage of prepared statements",
+                  "description": "supression of certain logging entries through sql injection\nD5/R8/E9/A2\n\nCAPEC: 66 SQL Injection\nAttack: T1565 Data Manipulation",
+                  "mitigation": "verify user input and usage of prepared statements\n\nD3FEND: D3-ACH Application Configuration Hardening\n\nD:0/R:0/E:0/A:0 -> 0\n",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 110,
@@ -1641,14 +1693,14 @@
                   "id": "17ca21af-4c80-44ea-989d-28fd8df266c6",
                   "title": "Information Disclosure through malicious insider",
                   "status": "Open",
-                  "severity": "High",
+                  "severity": "Medium",
                   "type": "Spoofing",
-                  "description": "Malicious insider leaks Logs\nD10/R1/E10/A10",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "description": "Malicious insider leaks Logs\nD10/R8/E10/A10\n\nCapec: 410 Information Elicitation\nAttack: T1426 System Information Discovery",
+                  "mitigation": "Background checks of employees?\n\nFS Permissions, so that not every user can access them and is discouraged to do so, since the person which deiscloses this information can be identified more easily\n\nD3FEND: D3-LFP Local File Permissions\n\nD:10/R:4/E:4/A:10",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 109,
-                  "score": "31"
+                  "score": "28"
                 }
               ]
             }
