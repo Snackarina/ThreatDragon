@@ -20,12 +20,12 @@
         "cells": [
           {
             "position": {
-              "x": 151.99999999999824,
-              "y": -387
+              "x": 121.99999999999937,
+              "y": -496.9999999999994
             },
             "size": {
               "width": 620,
-              "height": 620
+              "height": 730
             },
             "shape": "trust-boundary-box",
             "zIndex": -1,
@@ -87,8 +87,8 @@
                 "text": "Login System -\nWebapp +\nMobile App"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -120,10 +120,10 @@
                 {
                   "id": "001dedbd-a05b-4510-82b7-6b8023cb451f",
                   "title": "Reverse Shell",
-                  "status": "Open",
+                  "status": "Mitigated",
                   "severity": "Low",
                   "type": "Elevation of privilege",
-                  "description": "Creation of reverse shell through usage of the loggin system from old nginx server logging, which was able to connect to an ldap.\nD10/R10/E10/A10\n\nMitre Capec: 242 Code Injection\nMitre Attack: T1190 Exploit Public Facing Application",
+                  "description": "Creation of reverse shell through usage of the loggin system from old nginx server logging, which was able to connect to an ldap.\nD10/R10/E8/A10\n\nMitre Capec: 242 Code Injection\nMitre Attack: T1190 Exploit Public Facing Application",
                   "mitigation": "Disable the LDAP Connection Capability, so the nginx server cant establish \"ldap\"-connections and thus not connect to the reverse shell.\n\nD:3/R:0/E:0/A:3\nMitre D3FEND: D3-ACh Application Configuration Hardening\n\n",
                   "modelType": "STRIDE",
                   "new": false,
@@ -144,7 +144,7 @@
                   "score": "6"
                 }
               ],
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "isWebApplication": true,
               "handlesCardPayment": null,
               "handlesGoodsOrServices": null
@@ -1257,71 +1257,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "2. Weiterleitung\nTelefonnummer",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "8b28c298-8e97-4c42-a12b-5fccae41bd53",
-                  "title": "intercepting expected ott",
-                  "status": "Mitigated",
-                  "severity": "Low",
-                  "type": "Tampering",
-                  "description": "attacker interceptsexpected ott so they can use it through man in the middle\nD10/R7/E10/A7\n\nCAPEC: 94 Adversary in the Middle\nATTACK: T1111 Multi-Factor Authentication Interception",
-                  "mitigation": "OTT wird verschlüsselt übermittelt\n\nD3fend: D3-MENCR (message Encrpytion)\nD:0/R:0/E:0/A:0 -> 0",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 122,
-                  "score": "0"
-                }
-              ],
-              "isTrustBoundary": false
-            },
-            "id": "63356151-e316-4a82-8224-9a7c729cfbee",
-            "labels": [
-              {
-                "position": 0.5,
-                "attrs": {
-                  "label": {
-                    "text": "Erwarteter OTT"
-                  }
-                }
-              }
-            ],
-            "source": {
-              "cell": "94f68ce7-aa88-45a4-ba41-c0b62d6a959c"
-            },
-            "target": {
-              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Log(Login, OTT, Phone Number)",
               "description": "",
               "outOfScope": false,
@@ -1476,6 +1411,71 @@
             },
             "target": {
               "cell": "d8f6021e-35e9-4644-b797-86aa8de4f16c"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "2. Weiterleitung\nTelefonnummer",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "8b28c298-8e97-4c42-a12b-5fccae41bd53",
+                  "title": "intercepting expected ott",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "attacker interceptsexpected ott so they can use it through man in the middle\nD10/R7/E5/A7\n\nCAPEC: 94 Adversary in the Middle\nATTACK: T1111 Multi-Factor Authentication Interception",
+                  "mitigation": "OTT wird verschlüsselt übermittelt\n\nD3fend: D3-MENCR (message Encrpytion)\nD:0/R:0/E:0/A:0 -> 0",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 122,
+                  "score": "0"
+                }
+              ],
+              "isTrustBoundary": false
+            },
+            "id": "63356151-e316-4a82-8224-9a7c729cfbee",
+            "labels": [
+              {
+                "position": 0.5,
+                "attrs": {
+                  "label": {
+                    "text": "Erwarteter OTT"
+                  }
+                }
+              }
+            ],
+            "source": {
+              "cell": "94f68ce7-aa88-45a4-ba41-c0b62d6a959c"
+            },
+            "target": {
+              "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
             },
             "vertices": []
           },
@@ -1683,8 +1683,8 @@
                 "text": "Mnanagement"
               },
               "body": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
                 "strokeDasharray": null
               }
             },
@@ -1698,21 +1698,21 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": true,
+              "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": [
                 {
                   "id": "17ca21af-4c80-44ea-989d-28fd8df266c6",
                   "title": "Information Disclosure through malicious insider",
-                  "status": "Open",
-                  "severity": "Low",
-                  "type": "Spoofing",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Repudiation",
                   "description": "Malicious insider leaks Logs\nD10/R8/E10/A10\n\nCapec: 410 Information Elicitation\nAttack: T1426 System Information Discovery",
-                  "mitigation": "Background checks of employees?\n\nFS Permissions, so that not every user can access them and is discouraged to do so, since the person which deiscloses this information can be identified more easily\n\nD3FEND: D3-LFP Local File Permissions\n\nD:10/R:4/E:4/A:10",
+                  "mitigation": "Background checks of employees?\n\nFS Permissions, so that not every user can access them and is discouraged to do so, since the person which deiscloses this information can be identified more easily\n\nD3FEND: D3-LFP Local File Permissions\n\nD:10/R:7/E:4/A:10",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 109,
-                  "score": "10"
+                  "score": "31"
                 }
               ]
             }
